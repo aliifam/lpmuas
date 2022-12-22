@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "909541817368",
+    "firebase_url": "https://lpmuas-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "lpmuas",
+    "storage_bucket": "lpmuas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909541817368:android:8534369bf88db04b38d76d",
+        "android_client_info": {
+          "package_name": "com.aliif.lpmuas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909541817368-9jbld2q2ld68rvtb7s104k300aoq6ff9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKk6KynXMXQpI9mDMMmXRlq3IIOoSydeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909541817368-9jbld2q2ld68rvtb7s104k300aoq6ff9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

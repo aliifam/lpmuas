@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">lpmuas</string>
+    <string name="register">Register</string>
+    <string name="your_name">Your Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login">Login</string>
+    <string name="laporan">laporan</string>
+    <string name="judul_laporan">Judul Laporan</string>
+    <string name="tambah_laporan">Tambah Laporan</string>
+    <string name="isi_laporan">Isi Laporan</string>
+    <string name="lokasi_kejadian">Lokasi Kejadian</string>
+    <string name="tanggal_kejadian">Tanggal_Kejadian</string>
+    <string name="edit_laporan">Edit Laporan</string>
+    <string name="hapus_laporan">Hapus Laporan</string>
+</resources>
