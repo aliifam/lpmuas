@@ -83,7 +83,9 @@ public class AddActivity extends AppCompatActivity {
                 }else if(str_location.trim().isEmpty()){
                     location.setError("Lokasi tidak boleh kosong");
                 }else{
-                    databaseReference.child("Reports").push().setValue(new Report(Auth.getUserId(getApplicationContext()), str_title, str_content, str_date, str_location)).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    databaseReference.child("Reports").push()
+                            .setValue(new Report(Auth.getUserId(getApplicationContext()), str_title, str_content, str_date, str_location))
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(AddActivity.this, "Pengaduan Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
