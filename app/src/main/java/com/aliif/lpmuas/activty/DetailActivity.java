@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -35,6 +36,7 @@ public class DetailActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +66,8 @@ public class DetailActivity extends AppCompatActivity {
 
         title.setText(intent.getStringExtra("title"));
         content.setText(intent.getStringExtra("content"));
-        date.setText(intent.getStringExtra("date"));
-        location.setText(intent.getStringExtra("location"));
+        date.setText("Tanggal : " + intent.getStringExtra("date"));
+        location.setText("Lokasi : " + intent.getStringExtra("location"));
 
         id = intent.getStringExtra("id");
 
