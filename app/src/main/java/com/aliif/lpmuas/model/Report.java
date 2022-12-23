@@ -13,7 +13,7 @@ public class Report {
 
     public Report()
     {
-
+        // Default constructor required for calls to DataSnapshot.getValue(Report.class)
     }
 
     public Report(String user_id, String title, String content, String date, String location) {

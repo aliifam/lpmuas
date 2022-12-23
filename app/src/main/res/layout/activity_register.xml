@@ -54,4 +54,19 @@
         android:layout_height="wrap_content"
         android:text="@string/register"
         android:textAllCaps="false"/>
+
+    <TextView
+        android:id="@+id/gotoket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/gotoact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textAllCaps="false"/>
+
 </LinearLayout>

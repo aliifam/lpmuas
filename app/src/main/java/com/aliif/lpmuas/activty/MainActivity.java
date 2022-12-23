@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     for (DataSnapshot item: snapshot.getChildren())
                     {
                         Report report = item.getValue(Report.class);
+                        assert report != null;
                         report.setId(item.getKey());
                         reports.add(report);
                     }

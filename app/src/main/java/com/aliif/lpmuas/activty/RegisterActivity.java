@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
                     password.setError("Password harus sesuai konfirmasi password");
                     confirmpassword.setError("Konfirmasi Password harus sesuai password");
                 }else {
-                    databaseReference.child("User").push().setValue(new User(str_email, str_name, str_pass)).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    databaseReference.child("Users").push().setValue(new User(str_email, str_name, str_pass)).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(RegisterActivity.this, "Registrasi Berhasil silahkan login", Toast.LENGTH_SHORT).show();
