@@ -9,7 +9,7 @@ Kelas  : AA
 Matkul : PPPB1 (SVPL214306)
 ```
 
-## Fitur
+## Features
 
 - Authentication (Register, Login)
 - Save User Logged In in shared preference
@@ -17,7 +17,7 @@ Matkul : PPPB1 (SVPL214306)
 - User Access Privilege (Authorization) for CRUD Reporting
 - Logged in user can edit profile
 
-## Implement
+## Implements
 
 - Firebase Realtime Database
 - Shared Preferences
