@@ -63,6 +63,14 @@ public class DetailActivity extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent_edit = new Intent(getApplicationContext(), EditActivity.class);
+                intent_edit.putExtra("id", id);
+                intent_edit.putExtra("title", intent.getStringExtra("title"));
+                intent_edit.putExtra("content", intent.getStringExtra("content"));
+                intent_edit.putExtra("date", intent.getStringExtra("date"));
+                intent_edit.putExtra("location", intent.getStringExtra("location"));
+                intent_edit.putExtra("user_id", intent.getStringExtra("user_id"));
+                startActivity(intent_edit);
             }
         });
     }
