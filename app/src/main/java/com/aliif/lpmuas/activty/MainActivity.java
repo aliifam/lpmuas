@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         {
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }else {
+
+            getSupportActionBar().setTitle("Layanan Pengaduan Masyarakat");
             floatingActionButton = findViewById(R.id.add_button);
             floatingActionButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -99,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.logout){
             confirmLogout();
+        }
+        if(item.getItemId() == R.id.edit_profile){
+            startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

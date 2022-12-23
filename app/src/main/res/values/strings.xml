@@ -16,4 +16,5 @@
     <string name="hapus_laporan">Hapus Laporan</string>
     <string name="logout">logout</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="save_profile">Save Profile</string>
 </resources>
