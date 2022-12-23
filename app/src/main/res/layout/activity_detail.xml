@@ -11,36 +11,46 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/judul_laporan"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="ini adalah deskripsi laporan"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="23 December 2022" />
 
     <TextView
         android:id="@+id/location"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Yogyakarta, Indonesia" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Pengirim : Aliif Arief" />
+
     <TextView
         android:id="@+id/email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Email : me@aliif.space" />
 
     <Button
         android:id="@+id/edit"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/edit_laporan"

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,6 +55,9 @@ public class DetailActivity extends AppCompatActivity {
         location = findViewById(R.id.location);
         edit = findViewById(R.id.edit);
         delete = findViewById(R.id.delete);
+
+        delete.setBackgroundColor(Color.RED);
+        delete.setTextColor(Color.WHITE);
 
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
