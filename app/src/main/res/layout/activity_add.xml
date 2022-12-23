@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/tanggal_kejadian"
         android:ems="10"
-        android:inputType="date" />
+         />
 
     <EditText
         android:id="@+id/location"
