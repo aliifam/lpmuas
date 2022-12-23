@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        int delay = 3000;
+        int delay = 4000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

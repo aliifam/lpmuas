@@ -28,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     Report report = item.getValue(Report.class);
                     assert report != null;
                     report.setId(item.getKey());
-                    reports.add(report);
+                    reports.add(0,report);
                 }
 
                 reportAdapter = new ReportAdapter(reports, MainActivity.this);
