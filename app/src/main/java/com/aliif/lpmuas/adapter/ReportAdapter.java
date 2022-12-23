@@ -50,6 +50,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity.getApplicationContext(), DetailActivity.class);
+                intent.putExtra("id", report.getId());
                 intent.putExtra("title", report.getTitle());
                 intent.putExtra("content", report.getContent());
                 intent.putExtra("date", report.getDate());
