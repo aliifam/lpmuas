@@ -11,7 +11,7 @@
     <string name="tambah_laporan">Tambah Laporan</string>
     <string name="isi_laporan">Isi Laporan</string>
     <string name="lokasi_kejadian">Lokasi Kejadian</string>
-    <string name="tanggal_kejadian">Tanggal_Kejadian</string>
+    <string name="tanggal_kejadian">Tanggal Kejadian</string>
     <string name="edit_laporan">Edit Laporan</string>
     <string name="hapus_laporan">Hapus Laporan</string>
     <string name="logout">logout</string>
