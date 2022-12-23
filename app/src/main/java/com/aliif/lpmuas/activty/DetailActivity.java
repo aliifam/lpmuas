@@ -13,15 +13,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aliif.lpmuas.R;
+import com.aliif.lpmuas.model.User;
 import com.aliif.lpmuas.util.Auth;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DetailActivity extends AppCompatActivity {
 
-    TextView title, content, date, location;
+    TextView title, content, date, location, name, email;
     Button edit, delete;
 
     String id;
@@ -41,6 +45,9 @@ public class DetailActivity extends AppCompatActivity {
         edit = findViewById(R.id.edit);
         delete = findViewById(R.id.delete);
 
+        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
+
         title.setText(intent.getStringExtra("title"));
         content.setText(intent.getStringExtra("content"));
         date.setText(intent.getStringExtra("date"));
@@ -52,6 +59,26 @@ public class DetailActivity extends AppCompatActivity {
             edit.setVisibility(View.GONE);
             delete.setVisibility(View.GONE);
         }
+
+        databaseReference.child("Users").orderByKey().equalTo(intent.getStringExtra("user_id"))
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                        User user = dataSnapshot.getValue(User.class);
+                                        assert user != null;
+                                        name.setText("Nama Pengirim : " + user.getName());
+                                        email.setText("Email Pengirim : " + user.getEmail());
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
