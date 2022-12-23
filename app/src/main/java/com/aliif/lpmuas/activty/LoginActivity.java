@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.aliif.lpmuas.R;
 import com.aliif.lpmuas.model.User;
+import com.aliif.lpmuas.util.Auth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -62,7 +64,17 @@ public class LoginActivity extends AppCompatActivity {
                                         user.setId(dataSnapshot.getKey());
 
                                         if (str_password.equals(user.getPassword())){
-
+                                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                            intent.putExtra("user_id", user.getId());
+                                            intent.putExtra("user_name", user.getName());
+                                            intent.putExtra("user_email", user.getEmail());
+                                            intent.putExtra("user_password", user.getPassword());
+                                            Auth.setUserLoggedOut(getApplicationContext(), false);
+                                            Auth.setUserId(getApplicationContext(), user.getId());
+                                            startActivity(intent);
+                                            finish();
+                                        }else {
+                                            Toast.makeText(LoginActivity.this, "Password tidak sesuai gagal login", Toast.LENGTH_SHORT).show();
                                         }
                                     }
 

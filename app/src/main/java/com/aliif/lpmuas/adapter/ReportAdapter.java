@@ -62,7 +62,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
 
     @Override
     public int getItemCount() {
-        return 0;
+        return reportList.size();
     }
 
     public class ReportViewHolder extends RecyclerView.ViewHolder{

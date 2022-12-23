@@ -13,6 +13,7 @@ import android.view.View;
 import com.aliif.lpmuas.R;
 import com.aliif.lpmuas.adapter.ReportAdapter;
 import com.aliif.lpmuas.model.Report;
+import com.aliif.lpmuas.util.Auth;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,20 +37,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        floatingActionButton = findViewById(R.id.add_button);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AddActivity.class));
-            }
-        });
+        if(Auth.isUserLoggedOut(getApplicationContext()))
+        {
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        }else {
+            floatingActionButton = findViewById(R.id.add_button);
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), AddActivity.class));
+                }
+            });
 
-        recyclerView = findViewById(R.id.list_report);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView = findViewById(R.id.list_report);
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+            recyclerView.setLayoutManager(layoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        viewReports();
+            viewReports();
+        }
     }
 
         private void viewReports()

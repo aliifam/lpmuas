@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText name, email, password, confirmpassword;
-    Button button;
+    Button button, gotoact;
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -35,6 +35,15 @@ public class RegisterActivity extends AppCompatActivity {
         confirmpassword = findViewById(R.id.confirmpassword);
 
         button = findViewById(R.id.button);
+
+        gotoact = findViewById(R.id.gotoact);
+        gotoact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                finish();
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +64,8 @@ public class RegisterActivity extends AppCompatActivity {
                     password.setError("Password harus sesuai konfirmasi password");
                     confirmpassword.setError("Konfirmasi Password harus sesuai password");
                 }else {
-                    databaseReference.child("Users").push().setValue(new User(str_email, str_name, str_pass)).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    databaseReference.child("Users").push().
+                            setValue(new User(str_email, str_name, str_pass)).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(RegisterActivity.this, "Registrasi Berhasil silahkan login", Toast.LENGTH_SHORT).show();
