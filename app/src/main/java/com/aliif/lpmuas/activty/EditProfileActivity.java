@@ -1,9 +1,16 @@
 package com.aliif.lpmuas.activty;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +29,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class EditProfileActivity extends AppCompatActivity {
+
+    String channelnotif = "mychannel";
+    String channelid = "default";
 
     EditText name, email, password, confirmpassword;
     Button button;
@@ -82,9 +92,24 @@ public class EditProfileActivity extends AppCompatActivity {
                 }else {
                     databaseReference.child("Users").child(Auth.getUserId(getApplicationContext()))
                             .setValue(new User(str_email, str_name, str_pass)).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @RequiresApi(api = Build.VERSION_CODES.N)
                                 @Override
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(EditProfileActivity.this, "Data Profile Berhasil Diuabh", Toast.LENGTH_SHORT).show();
+                                    NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), channelid)
+                                            .setSmallIcon(R.mipmap.ic_launcher)
+                                            .setContentTitle("Profile Updated")
+                                            .setContentText("Berhasil mengubah data profile user!");
+                                    NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                        int importance =  NotificationManager.IMPORTANCE_HIGH;
+                                        NotificationChannel notificationChannel = new NotificationChannel(channelnotif, "example channel", importance);
+                                        notificationChannel.enableLights(true);
+                                        notificationChannel.setLightColor(Color.RED);
+                                        mBuilder.setChannelId(channelnotif);
+                                        notificationManager.createNotificationChannel(notificationChannel);
+                                    }
+                                    notificationManager.notify((int) System.currentTimeMillis(), mBuilder.build());
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
